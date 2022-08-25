@@ -1,25 +1,22 @@
-// @dart=2.9
-
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'presentation/screens/home-screen.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:multiple_user_bloc/presentation/screens/multi_users_app.dart';
+import 'core/utils/observers/app_bloc_observer.dart';
+import 'package:multiple_user_bloc/core/utils/injector/injector.dart' as i;
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
-    );
-  }
+void main() async {
+  await runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      i.configureInjector();
+      return HydratedBlocOverrides.runZoned(
+        () => runApp(
+          MultiUsersApp(),
+        ),
+        blocObserver: AppBlocObserver(),
+      );
+    },
+    (error, stackTrace) {},
+  );
 }

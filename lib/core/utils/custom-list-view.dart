@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:multiple_user_bloc/infrastruture/constant.dart';
+import 'package:multiple_user_bloc/core/utils/constants.dart';
 
 class CustomUserListCard extends StatefulWidget {
   final String email;
@@ -62,7 +61,7 @@ class _CustomUserListCardState extends State<CustomUserListCard> {
                         textScaleFactor: 1.0,
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: Constant.textColor,
+                            color: textColor,
                             fontSize: 14.0,
                             fontWeight: FontWeight.w400),
                       ),
@@ -70,7 +69,7 @@ class _CustomUserListCardState extends State<CustomUserListCard> {
                         height: 10.0,
                       ),
                       Divider(
-                        color: Constant.textColor,
+                        color: textColor,
                         thickness: 1.8,
                         indent: 20,
                         endIndent: 20,
@@ -90,7 +89,7 @@ class _CustomUserListCardState extends State<CustomUserListCard> {
                     widget.email,
                     textScaleFactor: 1.0,
                     style: TextStyle(
-                        color: Constant.textColor,
+                        color: textColor,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w400),
                   ),
@@ -102,7 +101,7 @@ class _CustomUserListCardState extends State<CustomUserListCard> {
                         style: TextStyle(
                           fontSize: 12.0,
                           fontWeight: FontWeight.w600,
-                          color: Constant.textColorTwo,
+                          color: textColorTwo,
                         ),
                       ),
                       SizedBox(
@@ -114,7 +113,7 @@ class _CustomUserListCardState extends State<CustomUserListCard> {
                         style: TextStyle(
                           fontSize: 12.0,
                           fontWeight: FontWeight.w600,
-                          color: Constant.textColorTwo,
+                          color: textColorTwo,
                         ),
                       ),
                     ],
